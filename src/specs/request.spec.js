@@ -1,6 +1,5 @@
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import configureStore from 'redux-mock-store';
 import request from '../request';
 
 const initialState = {
@@ -11,10 +10,8 @@ const initialState = {
 };
 
 describe('[Requests] request', () => {
-  let mockStore;
   let store;
   beforeEach(() => {
-    mockStore = configureStore([thunk]);
     store = mockStore(initialState);
 
     fetchMock.reset();

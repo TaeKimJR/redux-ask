@@ -1,0 +1,5 @@
+{
+    "setupFiles": [
+    	"./test-setup.js"
+  	]
+}
