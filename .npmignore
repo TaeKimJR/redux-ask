@@ -1,6 +1,9 @@
-src
 examples
 node_modules
+src
 .babelrc
+jest.config.json
+README.md
 rollup.config.js
+test-setup.js
 yarn.lock
