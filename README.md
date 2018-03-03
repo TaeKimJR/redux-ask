@@ -34,11 +34,11 @@ const store = createStore(reducers);
 ```
 
 ### Create your Request
-Before you can send requests, you'll need to use the provided `createRequest` helper...
+Before you can send requests, you'll need to use the provided `createRequest` helper to define a request...
 ```javascript
 import { createRequest } from 'redux-ask';
 
-export const createUser = createRequest((user) => ({
+export const createUser = createRequest(user => ({
 	method: 'POST',
 	url: '/api/users',
 	body: user,
@@ -50,12 +50,12 @@ To handle the response, use the `onSuccess` and `onFailure` thunk handlers. You 
 import { createRequest } from 'redux-ask';
 import { receiveUser } from './user-actions';
 
-export const createUser = createRequest((user) => ({
+export const createUser = createRequest(user => ({
 	method: 'POST',
 	url: '/api/users',
 	body: user,
 	onSuccess: (response) => dispatch => {
-		const newUser = response.data;
+		const newUser = response.result;
 		dispatch(receiveUser(newUser));
 	},
 	onFailure: () => dispatch => {
@@ -64,6 +64,23 @@ export const createUser = createRequest((user) => ({
 }));
 ```
 
+If you want to configure your request, use the `options` parameter. This will be passed as the fetch `init` parameter (see https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
+```javascript
+import { createRequest } from 'redux-ask';
+
+export const createUser = createRequest(user => ({
+	method: 'POST',
+	url: '/api/users',
+	body: user,
+	options: {
+		headers: new Headers({
+	      'Content-Type': 'application/json',
+	      'Cache-Control': 'no-cache',
+	    }),
+		credentials: 'include',
+	},
+}));
+```
 
 ### See it in action!
 In order to send the request, you'll need to wrap the created requests in dispatch and pass a UNIQUE request key...
@@ -98,15 +115,29 @@ import { selectors } from 'redux-ask';
 const mapStateToProps = state => {
 	return {
 		isNotStarted: selectors.isNotStartedSelector(UNIQUE_REQUEST_KEY)(state),
-  		isPending: selectors.isPendingSelector(UNIQUE_REQUEST_KEY)(state),
+		isPending: selectors.isPendingSelector(UNIQUE_REQUEST_KEY)(state),
 		isSuccessful: selectors.isSuccessfulSelector(UNIQUE_REQUEST_KEY)(state),
-  		isFailed: selectors.isFailedSelector(UNIQUE_REQUEST_KEY)(state),
+		isFailed: selectors.isFailedSelector(UNIQUE_REQUEST_KEY)(state),
 	};
 }
 
 ```
 
 BOOM!
+
+## Global Configuration
+TODO
+
+## API
+### createRequest
+TODO
+
+### Selectors
+TODO
+
+### setConfiguration
+TODO
+
 
 ## Meta
 
