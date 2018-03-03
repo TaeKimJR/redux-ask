@@ -39,7 +39,7 @@
     "rollup-plugin-babel": "3.0.3"
   },
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
     "infinite-reducer": "1.0.3",
     "ramda": "0.25.0",
     "redux": "3.7.2",
