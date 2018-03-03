@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Requests] request DELETE Basic Usage should make a DELETE request and set request flags 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "DELETE_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "DELETE_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "DELETE_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
+
+exports[`[Requests] request GET Basic Usage should make a GET request and set request flags 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
+
+exports[`[Requests] request POST Basic Usage should make a POST request and set request flags 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "POST_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "POST_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "POST_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
+
+exports[`[Requests] request PUT Basic Usage should make a PUT request and set request flags 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "PUT_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "PUT_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "PUT_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
+
+exports[`[Requests] request With global configuration should use the options from the global configuration in redux state under requests.config.options 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
+
+exports[`[Requests] request With options should make a GET request, passing the extra options to the request 1`] = `
+Array [
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_INITIAL",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "type": "requests/SET_PENDING",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+  Object {
+    "individualAction": Object {
+      "payload": Object {
+        "id": 1,
+        "name": "Tester",
+      },
+      "type": "requests/SET_SUCCESS",
+    },
+    "reducerKey": "GET_REQUEST_KEY",
+    "type": "INFINITE_ACTION_TYPE_REQUEST_REDUCER",
+  },
+]
+`;
