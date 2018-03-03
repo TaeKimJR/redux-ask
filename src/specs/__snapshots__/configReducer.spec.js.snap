@@ -2,24 +2,20 @@
 
 exports[`[Requests] Config Reducer should override any config with state given 1`] = `
 Object {
-  "fetchOptions": Object {
-    "foo": "bar",
-  },
   "onFailure": [Function],
   "onSuccess": null,
   "onUnauthenticated": null,
-  "requestOptions": Object {
-    "hello": "world",
+  "options": Object {
+    "foo": "bar",
   },
 }
 `;
 
 exports[`[Requests] Config Reducer should use the default empty config when no initial state is given 1`] = `
 Object {
-  "fetchOptions": Object {},
   "onFailure": null,
   "onSuccess": null,
   "onUnauthenticated": null,
-  "requestOptions": Object {},
+  "options": Object {},
 }
 `;

@@ -7,8 +7,8 @@ const request = (key, {
   body,
   onSuccess,
   onFailure,
-  requestOptions = {},
-  fetchOptions = {},
+  onUnauthenticated,
+  options = {},
 }) => (dispatch, getState) => {
   const state = getState();
 
@@ -17,35 +17,55 @@ const request = (key, {
   dispatch(actions.setInitial(key)());
   dispatch(actions.setPending(key)());
 
-  const configRequestOptions = internalSelectors.requestOptionsSelector(state);
-  const finalRequestOptions = {
-    ...configRequestOptions,
-    ...requestOptions,
+  const configOptions = internalSelectors.optionsSelector(state);
+  const finalOptions = {
+    ...configOptions,
+    ...options,
     method,
     body: body ? JSON.stringify(body) : undefined,
   };
 
-  const configFetchOptions = internalSelectors.fetchOptionsSelector(state);
-  const finalFetchOptions = {
-    ...configFetchOptions,
-    ...fetchOptions,
-  };
-
-  // TODO: request options and fetch options may be the same thing
-  return fetch(new Request(url, finalRequestOptions), finalFetchOptions)
+  return fetch(url, finalOptions)
     .then(res => {
       const isUnauthenticated = res.status === 401;
       if (isUnauthenticated) {
+        if (onUnauthenticated) {
+          dispatch(onUnauthenticated());
+        }
+
         const configOnUnauthenticated = internalSelectors.onUnauthenticatedSelector(state);
         if (configOnUnauthenticated) {
           dispatch(configOnUnauthenticated());
         }
+
+        return Promise.resolve();
       }
 
       // TODO: May need to skip json()
       const isOK = res.ok;
       if (isOK) {
-        return res.json();
+        return res.json()
+          .then(json => {
+            const resultPromise = new Promise(r => r(json));
+
+            const configOnSuccess = internalSelectors.onSuccessSelector(state);
+            if (configOnSuccess) {
+              dispatch(configOnSuccess(json));
+            }
+
+            if (onSuccess) {
+              return Promise.all([
+                resultPromise,
+                dispatch(onSuccess(json)),
+              ]);
+            }
+
+            return Promise.all([resultPromise]); 
+          })
+          .then(([json]) => {
+            dispatch(actions.setSuccess(key)(json));
+            return json;
+          });
       }
 
       // hasError
@@ -61,28 +81,9 @@ const request = (key, {
           if (configOnFailure) {
             dispatch(configOnFailure(json));
           }
+
+          return json;
         });
-    })
-    .then(res => {
-      const resultPromise = new Promise(r => r(res));
-
-      const configOnSuccess = internalSelectors.onSuccessSelector(state);
-      if (configOnSuccess) {
-        dispatch(configOnSuccess(res));
-      }
-
-      if (onSuccess) {
-        return Promise.all([
-          resultPromise,
-          dispatch(onSuccess(res)),
-        ]);
-      }
-
-      return Promise.all([resultPromise]);
-    })
-    .then(([res]) => {
-      dispatch(actions.setSuccess(key)(res));
-      return res;
     });
 };
 

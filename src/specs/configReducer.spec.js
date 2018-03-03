@@ -9,8 +9,7 @@ describe('[Requests] Config Reducer', () => {
 
   test('should override any config with state given', () => {
     const overrides = {
-      requestOptions: { hello: 'world' },
-      fetchOptions: { foo: 'bar' },
+      options: { foo: 'bar' },
       onFailure: () => {},
     };
 

@@ -11,15 +11,9 @@ const REQUESTS_REDUCERS_PATH = ['requests', 'requests'];
 // configSelector :: Object -> Object
 const configSelector = R.pathOr({}, REQUESTS_CONFIG_PATH);
 
-// requestOptionsSelector :: Object -> Object
-const requestOptionsSelector = R.compose(
-  R.propOr({}, 'requestOptions'),
-  configSelector,
-);
-
-// fetchOptionsSelector :: Object -> Object
-const fetchOptionsSelector = R.compose(
-  R.propOr({}, 'fetchOptions'),
+// optionsSelector :: Object -> Object
+const optionsSelector = R.compose(
+  R.propOr({}, 'options'),
   configSelector,
 );
 
@@ -43,8 +37,7 @@ const onFailureSelector = R.compose(
 
 export const internalSelectors = {
   configSelector,
-  requestOptionsSelector,
-  fetchOptionsSelector,
+  optionsSelector,
   onUnauthenticatedSelector,
   onSuccessSelector,
   onFailureSelector,

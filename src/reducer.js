@@ -30,14 +30,15 @@ export const requestReducer = handleActions(
 // Used for all requests, sharing the requestReducer
 const requestReducers = createInfiniteReducer(REQUEST_REDUCER_IDENTIFIER, requestReducer);
 
+
 // Used for configuring the request api
 const configInitialState = {
-  requestOptions: {},
-  fetchOptions: {},
+  options: {},
   onUnauthenticated: null,
   onSuccess: null,
   onFailure: null,
 };
+// TODO: Create SET_CONFIGURATION action
 export const configReducer = state => ({
   ...configInitialState,
   ...state,
