@@ -1,0 +1,28 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["last 2 versions", "safari >= 7"]
+          }
+        }]
+      ],
+      "plugins": ["transform-object-rest-spread"]
+    },
+    "build": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": {
+            "browsers": ["last 2 versions", "safari >= 7"]
+          }
+        }]
+      ],
+      "plugins": [
+        "transform-object-rest-spread",
+        "external-helpers"
+      ],
+    }
+  }
+}

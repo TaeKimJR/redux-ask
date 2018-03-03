@@ -1,0 +1,48 @@
+{
+  "name": "redux-ask",
+  "version": "0.0.1",
+  "description": "Remove boilerplate around requests... just ask!",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "NODE_ENV=build rollup --config ./rollup.config.js",
+    "prepublishOnly": "yarn install && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://TaeKimJR@github.com/TaeKimJR/redux-ask.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "reducer",
+    "thunk",
+    "request",
+    "fetch",
+    "flags",
+    "boilerplate",
+    "redux-ask"
+  ],
+  "author": "Tae Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TaeKimJR/redux-ask/issues"
+  },
+  "homepage": "https://github.com/TaeKimJR/redux-ask#readme",
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-jest": "22.4.1",
+    "babel-plugin-external-helpers": "6.22.0",
+    "babel-preset-env": "1.6.1",
+    "jest": "22.4.2",
+    "rollup": "0.56.3",
+    "rollup-plugin-babel": "3.0.3"
+  },
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "infinite-reducer": "1.0.3",
+    "ramda": "0.25.0",
+    "redux": "3.7.2",
+    "redux-actions": "2.2.1"
+  }
+}

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Requests] Request Reducer SET_FAILURE should set the status and error object given 1`] = `
+Object {
+  "error": Object {
+    "foo": "bar",
+  },
+  "status": "FAILURE",
+}
+`;
+
+exports[`[Requests] Request Reducer SET_INITIAL should set the state back to initial state 1`] = `
+Object {
+  "error": null,
+  "response": null,
+  "status": "NOT_STARTED",
+}
+`;
+
+exports[`[Requests] Request Reducer SET_PENDING should set the state to pending 1`] = `
+Object {
+  "status": "PENDING",
+}
+`;
+
+exports[`[Requests] Request Reducer SET_SUCCESS should set the status and response object given 1`] = `
+Object {
+  "response": Object {
+    "foo": "bar",
+  },
+  "status": "SUCCESS",
+}
+`;
