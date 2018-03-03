@@ -21,10 +21,90 @@ yarn add redux-ask
 
 ## Usage
 ### Setup your Request reducer
+Pass the provided reducer to the store under the `requests` key...
+```javascript
+import { createStore, combineReducers } from 'redux';
+import requestReducer from 'redux-ask';
+
+const reducers = combineReducers({
+	requests: requestReducer,
+});
+
+const store = createStore(reducers);
+```
 
 ### Create your Request
+Before you can send requests, you'll need to use the provided `createRequest` helper...
+```javascript
+import { createRequest } from 'redux-ask';
+
+export const createUser = createRequest((user) => ({
+	method: 'POST',
+	url: '/api/users',
+	body: user,
+}));
+```
+
+To handle the response, use the `onSuccess` and `onFailure` thunk handlers. You can use this opportunity to normalize entities, pass entities to your state, or notify users of errors...
+```javascript
+import { createRequest } from 'redux-ask';
+import { receiveUser } from './user-actions';
+
+export const createUser = createRequest((user) => ({
+	method: 'POST',
+	url: '/api/users',
+	body: user,
+	onSuccess: (response) => dispatch => {
+		const newUser = response.data;
+		dispatch(receiveUser(newUser));
+	},
+	onFailure: () => dispatch => {
+		dispatch(displayNotification('There was an error creating a user'));
+	},
+}));
+```
+
 
 ### See it in action!
+In order to send the request, you'll need to wrap the created requests in dispatch and pass a UNIQUE request key...
+```javascript
+import React from 'react';
+import { connect } from 'redux-actions';
+import { createUser } from './user-requests';
+
+const CreateUserButton = ({ createUser, user }) => {
+	return (
+		<button onClick={() => createUser(user)}>
+			Create User
+		</button>
+	)
+}
+
+const UNIQUE_REQUEST_KEY = 'REQUEST_KEY';
+
+const mapDispatchToProps = {
+	createUser: createUser(UNIQUE_REQUEST_KEY),
+};
+
+export default connect(null, mapDispatchToProps)(CreateUserButton);
+```
+
+If you would like to check the status of your request, use our selectors with the same UNIQUE request key...
+```javascript
+import { selectors } from 'redux-ask';
+
+// UNIQUE_REQUEST_KEY === 'REQUEST_KEY';
+
+const mapStateToProps = state => {
+	return {
+		isNotStarted: selectors.isNotStartedSelector(UNIQUE_REQUEST_KEY)(state),
+  		isPending: selectors.isPendingSelector(UNIQUE_REQUEST_KEY)(state),
+		isSuccessful: selectors.isSuccessfulSelector(UNIQUE_REQUEST_KEY)(state),
+  		isFailed: selectors.isFailedSelector(UNIQUE_REQUEST_KEY)(state),
+	};
+}
+
+```
 
 BOOM!
 
