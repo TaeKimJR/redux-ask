@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createRequest } from 'redux-ask';
 
@@ -12,6 +13,10 @@ const getPostRequest = createRequest(id => ({
 
 // Create your component
 class BasicUsage extends Component {
+	static propTypes = {
+		getPost: PropTypes.func.isRequired,
+	}
+
 	state = {
 		postId: 1,
 		response: null,
