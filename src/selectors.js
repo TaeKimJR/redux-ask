@@ -59,16 +59,16 @@ const statusSelector = requestKey => R.compose(
 
 // isNotStartedSelector :: String -> Object -> T/F
 const isNotStartedSelector = requestKey => R.compose(
-  R.equals(status.NOT_STARTED),
+  R.anyPass([
+    R.isNil,
+    R.equals(status.NOT_STARTED),
+  ]),
   statusSelector(requestKey),
 );
 
 // isPending :: String -> Object -> T/F
 const isPendingSelector = requestKey => R.compose(
-  R.anyPass([
-    R.equals(status.NOT_STARTED),
-    R.equals(status.PENDING),
-  ]),
+  R.equals(status.PENDING),
   statusSelector(requestKey),
 );
 

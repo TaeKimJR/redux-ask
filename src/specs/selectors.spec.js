@@ -36,7 +36,7 @@ describe('[Requests] Selectors', () => {
 
     describe('isPendingSelector', () => {
       test('should return true', () => {
-        expect(selectors.isPendingSelector(requestKey)(state)).toEqual(true);
+        expect(selectors.isPendingSelector(requestKey)(state)).toEqual(false);
       });
     });
 
@@ -56,7 +56,7 @@ describe('[Requests] Selectors', () => {
       test('should return all of the statuses', () => {
         expect(selectors.allStatusSelector(requestKey)(state)).toEqual({
           notStarted: true,
-          isPending: true,
+          isPending: false,
           isSuccessful: false,
           isFailed: false,
         });
