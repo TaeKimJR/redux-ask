@@ -154,13 +154,37 @@ Make sure to set the Global Configuration before any requests are made!
 
 ## API
 ### createRequest
-TODO
+`createRequest(requestConfigCreator:Func)`
+Creates a request that can be dispatched when given a Request Key.
+
+### Actions
+`setRequestConfig(config:Object)`
+Sets the global configuration for all requests.
 
 ### Selectors
-TODO
+`statusSelector(requestKey:String)(state:Object)`
+Gets the status of a request.
 
-### setConfiguration
-TODO
+`isNotStartedSelector(requestKey:String)(state:Object)`
+Returns if the request has been started or not.
+
+`isPendingSelector(requestKey:String)(state:Object)`
+Returns if the request is currently pending.
+
+`isSuccessfulSelector(requestKey:String)(state:Object)`
+Returns if the request is finished and successful.
+
+`isFailedSelector(requestKey:String)(state:Object)`
+Returns if the request is finished and failed.
+
+`allStatusSelector(requestKey:String)(state:Object)`
+Gets all of the request status in an object. This is a nice helper if you are checking all status.
+
+`responseSelector(requestKey:String)(state:Object)`
+Returns if the response of the request if finished and successful.
+
+`errorSelector(requestKey:String)(state:Object)`
+Returns if the response of the request if finished and failed.
 
 
 ## Meta
