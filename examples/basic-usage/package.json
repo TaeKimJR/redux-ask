@@ -9,7 +9,7 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
-    "redux-ask": "0.0.5",
+    "redux-ask": "0.0.6",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
