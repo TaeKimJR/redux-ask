@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setRequestConfig, createRequest } from 'redux-ask';
+import { actions, createRequest } from 'redux-ask';
 
 const FIRST_REQUEST_KEY = 'FIRST_REQUEST';
 const SECOND_REQUEST_KEY = 'SECOND_REQUEST';
@@ -38,7 +38,8 @@ class BasicUsage extends Component {
   componentDidMount() {
     // Before any requests are made, set the global configuration.
     // This should be done at the highest point in your App.
-    this.props.setRequestConfig(this.getConfig());
+    const { setRequestConfig } = this.props;
+    setRequestConfig(this.getConfig());
   }
 
   getConfig = () => ({
@@ -73,7 +74,7 @@ class BasicUsage extends Component {
         <div>
           <button onClick={this.handleFirstRequest}>Send Request 1</button>
           <button onClick={this.handleSecondRequest}>Send Request 2</button>
-          <button onClick={this.handleThirdRequest}>SEnd Request 3</button>
+          <button onClick={this.handleThirdRequest}>Send Request 3</button>
         </div>
         {
           response && (
@@ -95,7 +96,7 @@ const mapDispatchToProps = {
   firstRequest: firstRequest(FIRST_REQUEST_KEY),
   secondRequest: secondRequest(SECOND_REQUEST_KEY),
   thirdRequest: thirdRequest(THIRD_REQUEST_KEY),
-  setRequestConfig,
+  setRequestConfig: actions.setRequestConfig,
 };
 
 // Export the final component
