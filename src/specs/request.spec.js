@@ -1,4 +1,3 @@
-import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import request from '../request';
 
