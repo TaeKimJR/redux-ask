@@ -1,2 +1,4 @@
 node_modules
 dist
+.idea
+examples/.DS_STORE
