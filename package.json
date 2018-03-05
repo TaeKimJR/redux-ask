@@ -3,6 +3,7 @@
   "version": "0.0.7",
   "description": "Remove boilerplate around requests... just ask!",
   "main": "dist/index.js",
+  "reveal": true,
   "scripts": {
     "test": "jest --config ./jest.config.json",
     "lint": "eslint .",
