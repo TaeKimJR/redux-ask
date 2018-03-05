@@ -64,7 +64,7 @@ export const createUser = createRequest(user => ({
 }));
 ```
 
-If you want to configure your request, use the `options` parameter. This will be passed as the fetch `init` parameter (see https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
+If you want to configure your request, use the `options` parameter. This will be passed as the fetch `init` parameter (see [documentation](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)).
 ```javascript
 import { createRequest } from 'redux-ask';
 
@@ -187,11 +187,8 @@ Returns if the response of the request if finished and successful.
 Returns if the response of the request if finished and failed.
 
 
-## Meta
-
-Tae Kim – [Github](https://github.com/TaeKimJR) - [LinkedIn](https://www.linkedin.com/in/taekimjr/) – TaeKimJR@gmail.com
-
-Distributed under the MIT license. See ``LICENSE`` for more information.
+## Issues?
+Please report any issues! I will glady accept them at our [issues page](https://github.com/TaeKimJR/redux-ask/issues).
 
 ## Contributing
 1. Fork it (<https://github.com/TaeKimJR/redux-ask/fork>)
@@ -199,3 +196,9 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+## Meta
+
+Tae Kim – [Github](https://github.com/TaeKimJR) - [LinkedIn](https://www.linkedin.com/in/taekimjr/) – TaeKimJR@gmail.com
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
