@@ -20,9 +20,12 @@ const setPending = createInfiniteAction(REQUEST_REDUCER_IDENTIFIER, setPendingUn
 const setSuccess = createInfiniteAction(REQUEST_REDUCER_IDENTIFIER, setSuccessUnwrapped);
 const setFailure = createInfiniteAction(REQUEST_REDUCER_IDENTIFIER, setFailureUnwrapped);
 
+const setRequestConfig = createAction(types.SET_CONFIG);
+
 export {
   setInitial,
   setPending,
   setSuccess,
   setFailure,
+  setRequestConfig,
 };

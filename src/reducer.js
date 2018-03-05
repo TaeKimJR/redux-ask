@@ -38,11 +38,13 @@ const configInitialState = {
   onSuccess: null,
   onFailure: null,
 };
-// TODO: Create SET_CONFIGURATION action
-export const configReducer = state => ({
-  ...configInitialState,
-  ...state,
-});
+
+export const configReducer = handleActions(
+  {
+    [types.SET_CONFIG]: (state, { payload }) => R.merge(configInitialState, payload),
+  },
+  configInitialState,
+);
 
 // Used to create the reducer (allowing for configuration overrides passed in)
 const reducer = combineReducers({

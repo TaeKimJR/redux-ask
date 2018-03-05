@@ -1,21 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Requests] Config Reducer should override any config with state given 1`] = `
+exports[`[Requests] Config Reducer Initial State should override any config with state given 1`] = `
 Object {
   "onFailure": [Function],
-  "onSuccess": null,
-  "onUnauthenticated": null,
   "options": Object {
     "foo": "bar",
   },
 }
 `;
 
-exports[`[Requests] Config Reducer should use the default empty config when no initial state is given 1`] = `
+exports[`[Requests] Config Reducer Initial State should use the default empty config when no initial state is given 1`] = `
 Object {
   "onFailure": null,
   "onSuccess": null,
   "onUnauthenticated": null,
   "options": Object {},
+}
+`;
+
+exports[`[Requests] Config Reducer SET_CONFIG 1`] = `
+Object {
+  "onFailure": [Function],
+  "onSuccess": [Function],
+  "onUnauthenticated": [Function],
+  "options": Object {
+    "headers": Object {
+      "Content-type": "application/json",
+    },
+  },
 }
 `;
