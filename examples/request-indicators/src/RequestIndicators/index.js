@@ -9,35 +9,23 @@ const REQUEST_KEY = 'GET_POST_REQUEST';
 // Create your request
 const successRequest = createRequest(() => ({
 	method: 'GET',
-	url: 'http://httpstat.us/200',
-	options: {
-		headers: new Headers({
-			'Content-Type': 'application/json',
-			'Accept': 'application/json',
-		}),
-	},
+	url: 'https://reqres.in/api/users?page=2',
 }));
 
 const failRequest = createRequest(id => ({
 	method: 'GET',
-	url: 'http://httpstat.us/500',
-	options: {
-		headers: new Headers({
-			'Content-Type': 'application/json',
-			'Accept': 'application/json',
-		}),
+	url: 'https://reqres.in/api/users/23',
+	onFailure: () => (dispatch, getState) => {
+		console.log('FAILED', getState());
 	},
+	onSuccess: () => () => {
+		console.log('SUCCESS');
+	}
 }));
 
 const longRequest = createRequest(id => ({
 	method: 'GET',
-	url: 'http://httpstat.us/200?sleep=5000',
-	options: {
-		headers: new Headers({
-			'Content-Type': 'application/json',
-			'Accept': 'application/json',
-		}),
-	},
+	url: 'https://reqres.in/api/users?delay=3',
 }));
 
 // Create your component
