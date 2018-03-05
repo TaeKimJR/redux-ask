@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest --config ./jest.config.json",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "build": "NODE_ENV=production rollup --config ./rollup.config.js",
     "prepublishOnly": "yarn install && yarn build",
     "prepush": "yarn lint && yarn test"
