@@ -1,6 +1,6 @@
 {
   "name": "redux-ask",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Remove boilerplate around requests... just ask!",
   "main": "dist/index.js",
   "scripts": {
@@ -48,6 +48,6 @@
   "dependencies": {
     "infinite-reducer": "1.0.3",
     "ramda": "0.25.0",
-    "redux-actions": "2.2.1"  
+    "redux-actions": "2.2.1"
   }
 }
