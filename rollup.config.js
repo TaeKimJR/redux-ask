@@ -8,6 +8,6 @@ export default {
     format: 'cjs',
   },
   plugins: [
-    babel({})
+    babel({}),
   ],
 };

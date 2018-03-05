@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "import",
+    "react",
+    "jsx-a11y"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.js"],
+      "env": {
+        "jest": true
+      },
+      "globals": {
+        "noop": true,
+        "fetch": true,
+        "mockStore": true
+      },
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}

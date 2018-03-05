@@ -54,7 +54,7 @@ const requestSelector = requestKey => R.pathOr({}, [...REQUESTS_REDUCERS_PATH, r
 // statusSelector :: String -> Object -> String
 const statusSelector = requestKey => R.compose(
   R.prop('status'),
-  requestSelector(requestKey)
+  requestSelector(requestKey),
 );
 
 // isNotStartedSelector :: String -> Object -> T/F

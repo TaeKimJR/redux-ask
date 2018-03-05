@@ -8,9 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      	<Provider store={configureStore()}>
-      		<RequestIndicators />
-      	</Provider>
+        <Provider store={configureStore()}>
+          <RequestIndicators />
+        </Provider>
       </div>
     );
   }

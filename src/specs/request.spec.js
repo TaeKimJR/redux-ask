@@ -87,7 +87,7 @@ describe('[Requests] request', () => {
       });
     });
   });
-  
+
   describe('DELETE', () => {
     describe('Basic Usage', () => {
       test('should make a DELETE request and set request flags', () => {
@@ -283,7 +283,6 @@ describe('[Requests] request', () => {
 
     test('should use the onFailure handler from the global configuration in redux state under requests.config.onFailure', () => {
       const errorResponse = { errorMessage: 'Something went wrong!' };
-      const user = { id: 1, name: 'Tester' };
 
       fetchMock.get((url, opts) => (url === '/api/users' && opts.headers === headers), {
         status: 500,
@@ -306,8 +305,6 @@ describe('[Requests] request', () => {
     });
 
     test('should use the onUnauthenticated handler from the global configuration in redux state under requests.config.onUnauthenticated', () => {
-      const user = { id: 1, name: 'Tester' };
-
       fetchMock.get((url, opts) => (url === '/api/users' && opts.headers === headers), 401);
 
       const key = 'GET_REQUEST_KEY';

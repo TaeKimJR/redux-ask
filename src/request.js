@@ -60,7 +60,7 @@ const request = (key, {
               ]);
             }
 
-            return Promise.all([resultPromise]); 
+            return Promise.all([resultPromise]);
           })
           .then(([json]) => {
             dispatch(actions.setSuccess(key)(json));
