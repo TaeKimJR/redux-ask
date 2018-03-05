@@ -126,7 +126,31 @@ const mapStateToProps = state => {
 BOOM!
 
 ## Global Configuration
-TODO
+Most Apps use common configuration for all requests made. Redux Ask allows you to set a global configuration that will be used for all requests.
+
+To set the global configuration, use the provided `setRequestConfig` action...
+```javascript
+import React, { Component } from 'react';
+import { actions } from 'redux-ask';
+
+class App extends Component {
+  componentWillMount() {
+    this.props.setRequestConfig({
+      options: { ... },
+      onSuccess: () => dispatch => { ... },
+      onFailure: () => dispatch => { ... },
+      onUnauthenticated: () => dispatch => { ... },
+    });
+  }
+}
+
+const mapDispatchToProps = {
+   setRequestConfig: actions.setRequestConfig,
+};
+
+```
+
+Make sure to set the Global Configuration before any requests are made!
 
 ## API
 ### createRequest
