@@ -42,8 +42,7 @@
     "redux-mock-store": "1.5.1",
     "redux-thunk": "2.2.0",
     "rollup": "0.56.3",
-    "rollup-plugin-babel": "3.0.3",
-    "rollup-plugin-uglify": "3.0.0"
+    "rollup-plugin-babel": "3.0.3"
   },
   "dependencies": {
     "infinite-reducer": "1.0.3",
