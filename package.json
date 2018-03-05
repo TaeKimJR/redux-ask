@@ -7,7 +7,8 @@
     "test": "jest --config ./jest.config.json",
     "lint": "eslint . --fix",
     "build": "NODE_ENV=production rollup --config ./rollup.config.js",
-    "prepublishOnly": "yarn install && yarn build"
+    "prepublishOnly": "yarn install && yarn build",
+    "prepush": "yarn lint && yarn test"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-react": "7.7.0",
     "fetch-mock": "6.0.1",
+    "husky": "0.14.3",
     "jest": "22.4.2",
     "jest-fetch-mock": "1.4.2",
     "redux-mock-store": "1.5.1",
