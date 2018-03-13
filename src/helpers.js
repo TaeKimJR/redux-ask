@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 
 const callIfFunction = R.when(
-  R.is('function'),
+  objectOrFunc => typeof objectOrFunc === 'function',
   R.call,
 );
 
