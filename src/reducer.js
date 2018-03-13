@@ -41,7 +41,7 @@ const configInitialState = {
 
 export const configReducer = handleActions(
   {
-    [types.SET_CONFIG]: (state, { payload }) => R.merge(configInitialState, payload),
+    [types.SET_CONFIG]: (state, { payload }) => payload,
   },
   configInitialState,
 );
