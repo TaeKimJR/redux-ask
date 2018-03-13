@@ -1,6 +1,6 @@
 {
   "name": "redux-ask",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Remove boilerplate around requests... just ask!",
   "main": "dist/index.js",
   "reveal": true,
