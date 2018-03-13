@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { status } from './constants';
+import { callIfFunction } from './helpers';
 
 const REQUESTS_CONFIG_PATH = ['requests', 'config'];
 const REQUESTS_REDUCERS_PATH = ['requests', 'requests'];
@@ -9,10 +10,14 @@ const REQUESTS_REDUCERS_PATH = ['requests', 'requests'];
 // --------------------------------
 
 // configSelector :: Object -> Object
-const configSelector = R.pathOr({}, REQUESTS_CONFIG_PATH);
+const configSelector = R.compose(
+  callIfFunction,
+  R.pathOr({}, REQUESTS_CONFIG_PATH),
+);
 
 // optionsSelector :: Object -> Object
 const optionsSelector = R.compose(
+  callIfFunction,
   R.propOr({}, 'options'),
   configSelector,
 );
